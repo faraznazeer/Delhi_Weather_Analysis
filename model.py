@@ -31,7 +31,7 @@ def predict_temp(dates, price, x):
     
     #lin = SVR( kernel="linear", C=1)
     #poly = SVR( kernel="poly", C=1, degree=2)
-    rbf = SVR( kernel="rbf", C=100000, gamma=0.1)
+    rbf = SVR( kernel="rbf", C=1000, gamma=0.1)
 
    # lin.fit(index,temp)    
     #poly.fit(index,temp)

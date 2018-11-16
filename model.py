@@ -29,7 +29,7 @@ def predict_temp(x):
 
     
     lin = SVR( kernel="linear", C=1)
-    poly = SVR( kernel="poly", C=1, degree=2)
+    poly = SVR( kernel="poly", C=0.00001, degree=2)
     rbf = SVR( kernel="rbf", C=100, gamma=0.05)
 
     lin.fit(index,temp)    
@@ -45,12 +45,12 @@ def predict_temp(x):
     plt.ylabel("Temperature")
     plt.legend()
     plt.show()
-
-    return  lin.predict(x)[0], poly.predict(x)[0], rbf.predict(x)[0]
+        
+    return  lin.predict(x)[0], rbf.predict(x)[0], poly.predict(x)[0]
 
 
 get_data("Delhi_Weather_Data.csv")
 
-print( "Temperature at data point 2002 : "+str(predict_temp(2002)) )
+print( "Temperature at data point 2002 : "+str(predict_temp(2003)) )
 
 #print ( get_accuracy() )
